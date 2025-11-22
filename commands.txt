@@ -1,0 +1,53 @@
+# Install dependencies
+pip install -r requirements.txt
+
+# Basic run with default config
+python run_scraper.py
+
+# Run with custom keywords
+python run_scraper.py --keywords "gaming mouse,mechanical keyboard,webcam"
+
+# Run with different settings
+python run_scraper.py --pages 3 --delay 3 --concurrent 2
+
+# Run on different domain
+python run_scraper.py --domain uk --keywords "tea,biscuits"
+
+# Dry run to see what will be scraped
+python run_scraper.py --dry-run --keywords "laptop" --pages 2
+
+# Run with caching enabled
+python run_scraper.py --use-cache --keywords "smartphone"
+
+# Run with different output format
+python run_scraper.py --output json --keywords "headphones"
+
+# Run with debug logging
+python run_scraper.py --log-level DEBUG --keywords "tablet"
+
+# Navigate to project directory
+cd amazon_scraper
+
+# Basic run
+scrapy crawl amazon_spider
+
+# With custom parameters
+scrapy crawl amazon_spider -a keywords="laptop,smartphone" -a max_pages=2
+
+# With settings override
+scrapy crawl amazon_spider -s DOWNLOAD_DELAY=5 -s CONCURRENT_REQUESTS=1
+
+# Save to specific file
+scrapy crawl amazon_spider -o custom_output.csv
+
+# With different log level
+scrapy crawl amazon_spider -L WARNING
+
+# Scrape UK Amazon with specific settings
+python run_scraper.py --domain uk --keywords "gaming chair,desk" --pages 5 --delay 2 --output both
+
+# High-speed scraping (be careful with this)
+python run_scraper.py --concurrent 3 --delay 1 --keywords "coffee machine"
+
+# Conservative scraping with caching
+python run_scraper.py --delay 5 --concurrent 1 --use-cache --keywords "air fryer,blender"
